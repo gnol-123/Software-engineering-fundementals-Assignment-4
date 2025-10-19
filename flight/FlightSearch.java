@@ -139,15 +139,3 @@ public class FlightSearch {
 
       return valid;
    }
-
-
-   public static void main(String[] args){
-      FlightSearch search = new FlightSearch();
-      boolean validSearch = search.runFlightSearch("25/10/2025", "syd", false, "05/11/2025", "mel", "business", 2, 3, 1);
-      if(validSearch){
-         System.out.println("Flight search is valid!");
-      } else {
-         System.out.println("Flight search is invalid.");
-      }
-   }
-}
