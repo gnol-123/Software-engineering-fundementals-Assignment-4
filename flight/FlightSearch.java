@@ -40,20 +40,20 @@ public class FlightSearch {
       // Validate atleast 1 - 9 Passengers condition 1
       int totalPassengers = (adultPassengerCount + childPassengerCount + infantPassengerCount); 
       if (totalPassengers < 1 || totalPassengers > 9){
-         System.out.println("Bad search: Invalid number of passengers\n");
+         System.out.println("Bad search: Invalid number of passengers");
          return false;
       }
 
       //Validate Seating Type Contition 9
       if (!seatingClass.equals("economy") && !seatingClass.equals("premium economy") && !seatingClass.equals("business") && !seatingClass.equals("first")) {
-         System.out.println("Bad search: Invalid seat type\n");
+         System.out.println("Bad search: Invalid seat type");
          return false;
       }
 
       //Children Cannot be seated emergency row or first class condition 2 
       if (childPassengerCount > 0) {
          if (emergencyRowSeating || seatingClass.equals("first")) {
-            System.out.println("Bad search: No children in emergency row or first class\n");
+            System.out.println("Bad search: No children in emergency row or first class");
             return false;
          }
       }
@@ -62,38 +62,38 @@ public class FlightSearch {
       
       if (infantPassengerCount > 0) {
          if (emergencyRowSeating || seatingClass.equals("business")) {
-            System.out.println("Bad search: No infant in emergency row or business class\n");
+            System.out.println("Bad search: No infant in emergency row or business class");
             return false;
          }
       }
 
       //2 children per adult condition 4
       if (childPassengerCount > 2 * adultPassengerCount ){
-         System.out.println("Bad search: Atleast one adult required for every two children\n");
+         System.out.println("Bad search: Atleast one adult required for every two children");
          return false;
       }
 
       //only one infant per adult condition 5
       if (infantPassengerCount > adultPassengerCount){
-         System.out.println("Atleast one adult required per infant.\n");
+         System.out.println("Atleast one adult required per infant.");
          return false;
       }
 
       // Only economy class have emergency row condition contition 10
       if (emergencyRowSeating && !seatingClass.equals("economy")) {
-         System.out.println("Emergency seating only in economy class\n");
+         System.out.println("Emergency seating only in economy class");
          return false;
       }
 
       //Valid airport code condition 11
       List<String> validAirports = Arrays.asList("syd", "mel", "lax", "cdg", "del", "pvg", "doh");
       if (!validAirports.contains(departureAirportCode) || !validAirports.contains(destinationAirportCode)) {
-         System.out.println("invalid airportcode\n");
+         System.out.println("invalid airportcode");
          return false;
       }
       //Airport cannot be the same condition 11
       if (departureAirportCode.equals(destinationAirportCode)) {
-         System.out.println("Trip cannot be to the same airport\n");
+         System.out.println("Trip cannot be to the same airport");
          return false;
       }
 
@@ -104,7 +104,7 @@ public class FlightSearch {
       LocalDate returnDateVal = validateDateFormat(returnDate);
 
       if (departureDateVal == null || returnDateVal == null) {
-         System.out.println("Invalid date format\n");
+         System.out.println("Invalid date format");
          return false;
       }
 
@@ -118,7 +118,7 @@ public class FlightSearch {
 
       // Return Date cannot be before departure date condition 8
       if (returnDateVal.isBefore(departureDateVal)) {
-         System.out.println("Return date cannot be before departure date\n");
+         System.out.println("Return date cannot be before departure date");
          return false;
       }
 
